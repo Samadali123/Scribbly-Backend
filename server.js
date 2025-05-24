@@ -23,8 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-   origin : 
-}))
+   origin : 'https://scribbly-front-end.vercel.app/',
+   credentials: true,
+}));
+
 app.get("/api", (req, res) => {
   res.send("API is working");
 });
