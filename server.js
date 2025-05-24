@@ -11,16 +11,6 @@ const logger = require('morgan');
 // Load environment variables
 dotenv.config();
 
-// // Check required environment variables
-// const requiredEnvVars = ['MONGO_URI', 'JWT_SECRET'];
-// const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
-
-// if (missingEnvVars.length > 0) {
-//   console.error('Missing required environment variables:', missingEnvVars.join(', '));
-//   process.exit(1);
-// }
-
-// Connect to MongoDB
 connectDB();
 
 const app = express();
@@ -30,8 +20,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.get("/api", (req, res) => {
+  res.send("API is working");
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
+
 app.all('*', (req, res) => {
   res.status(404).json({ success: false, message: req.url + " not found"  });
 });
