@@ -22,13 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-app.use(cors({
-  origin: 'https://scribbly-indol.vercel.app',
-  credentials: false
-}))
+// app.use(cors({
+//   origin: 'https://scribbly-indol.vercel.app',
+//   credentials: true
+// }))
 
+app.use(cors());
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.send("API is working");
 });
 app.use('/api/auth', authRoutes);
