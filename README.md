@@ -1,4 +1,4 @@
-# Notes App Backend
+# Scribbly Backend
 
 Backend server for a full-stack Scribbly App using Node.js, Express, and MongoDB  
 Includes authentication, notes CRUD, search/filter, JWT, and cookie-based auth.
